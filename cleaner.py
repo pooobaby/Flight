@@ -198,6 +198,7 @@ class Cleaning(object):
             x_data.append(str_n)
         for day in range(1, 8):
             plane_w = self.plane[self.plane['week'].str.contains(str(day))]  # 用模糊筛选提取当天数据
+            hour_list = []
             for n in data:
                 times = plane_w[plane_w['start_airport'].isin([n[0]])].drop_duplicates(subset='flight_no')
                 hours = times.start_time.tolist()       # 生成时间的列表
