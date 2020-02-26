@@ -148,7 +148,7 @@ class Drawing(object):
 
     @staticmethod
     def lineWeekOut(data)-> Line:
-        # 本周出港航班数量统计
+        # 本周出港航班数量统计图
         week_bar = (
             Line(init_opts=opts.InitOpts(width='1000px', height='500px'))
             .add_xaxis(data[0])
@@ -167,6 +167,7 @@ class Drawing(object):
         return week_bar
 
     def heatOutPortTime(self, data)-> HeatMap:
+        # 每周出港航班按小时热力图
         out_port_time_heat = (
             HeatMap(init_opts=opts.InitOpts(width='1000px', height='500px'))
             .add_xaxis(data[0])
@@ -175,12 +176,13 @@ class Drawing(object):
                 title_opts=opts.TitleOpts(title='本周出港航班时间热力图',
                                           title_textstyle_opts=opts.TextStyleOpts(font_size=20),
                                           subtitle='{} [数据来源：ctrip.com]'.format(self.today_ymd)),
-                visualmap_opts=opts.VisualMapOpts(type_='color', min_=0, max_=6000),
+                visualmap_opts=opts.VisualMapOpts(type_='color', min_=0, max_=1000),
             )
         )
         return out_port_time_heat
 
     def geoLineCity(self, data)-> Geo:
+        # 指定城市航班连接城市图
         count = len(data[0])
         city_Geoline = (
             Geo(init_opts=opts.InitOpts(width='1000px', height='500px'))
