@@ -11,7 +11,7 @@ from pyecharts.charts import Page
 
 class Flight(object):
     def __init__(self):
-        self.page = Page(page_title="全国航班信息大数据分析可视化图表")
+        self.page = Page(page_title="全国航班数据可视化图表")
         self.drawer = Drawing()
         self.cleaner = Cleaning()
 
